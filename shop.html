@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA==" crossorigin="anonymous" />
+   <title>Egg Wars | Shop</title>
+        <style>
+            html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body {
+            display: table;
+        }
+            .new-buttons {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .black-text {
+            color: black;
+        }
+        .large {
+            font-size: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="new-buttons">
+        <button id="devil" class="button is-black" onclick="devil()">Deviled Egg - 100</button>
+        <button class="button is-black" onclick="shop()">Shop</button>
+        </div>
+        <script>
+            function devil() {
+            if(localStorage.getItem("ownedSkins").includes("devil")) {
+                document.getElementById("devil").addEventListener("click", localStorage.setItem("equipedSkin", "devil"));
+            }
+            else {
+            var coins = localStorage.getItem("coins");
+            if(Number(coins) >= 100) {
+                var a = [];
+    // Parse the serialized data back into an aray of objects
+    if(!localStorage.getItem("ownedSkins")) {
+        a = [];
+    }
+    else {
+    a = JSON.parse(localStorage.getItem('ownedSkins'));
+    }
+    // Push the new data (whether it be an object or anything else) onto the array
+    a.push("devil");
+    // Alert the array value
+    alert(a);  // Should be something like [Object array]
+    // Re-serialize the array back into a string and store it in localStorage
+    localStorage.setItem('ownedSkins', JSON.stringify(a));
+    let coins = localStorage.getItem("coins");
+    localStorage.setItem("coins", coins - 100);
+    localStorage.setItem("equipedSkin", "devil")
+            }
+            else {
+                alert("not enough coins!");
+            }
+        }
+            }
+            
+            function shop() {
+                window.location.href="shop.html";
+            }
+            var ownedSkin = localStorage.getItem("ownedSkins");
+            if(ownedSkin.includes("devil")) {
+                document.getElementById("devil").innerHTML = "Deviled Egg - Owned"
+            }
+            </script>
+    </body>
+    
+</html>

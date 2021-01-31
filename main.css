@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+* {
+  text-align: center;
+  font-family: Arial, Geneva, Helvetica, sans-serif; 
+  overflow: hidden;
+}
+p {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+}
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;   
+}
+#logo {
+  position: absolute;
+  left:5;top:0
+}
+#img {
+  position: absolute;
+  right:5px;top:5px;
+  height: 50px;
+}
